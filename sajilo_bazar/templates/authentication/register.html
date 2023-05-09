@@ -1,4 +1,4 @@
-{% extends 'master/base.html' %}
+{% extends 'master/index.html' %}
 
 {% block title %}
 
@@ -9,45 +9,65 @@ Register
 
 {% endblock css %}
 
-{% block form %}
-<br>
-<h1 data-aos="fade-up">SignUp</h1>
-<div class="container" data-aos="fade-up" data-aos-delay="400">
-<form action="/register" method="post">
+{% block body %}
+<section id="contact" class="contact">
+    <div class="container">
 
-    <br>
-        <label for="username">Username</label>
-        <div class="form-group">
-            <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username" required>
-        </div>
-        <label for="fname">First Name</label>
-        <div class="form-group">
-            <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter first  name" required>
-        </div>
-        <label for="lname">Last Name</label>
-        <div class="form-group">
-            <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter last  name" required>
-        </div>
-        <label for="email">Email</label>
-        <div class="form-group">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
-        </div>
-        <label for="pass1">Password</label>
-        <div class="form-group">
-            <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Enter password" required>
-        </div>
-        <label for="pass2">Password</label>
-        <div class="form-group">
-            <input type="password" class="form-control" name="pass2" id="pass2" placeholder="Enter password" required>
-        </div>
-        <button type="submit" class="btn btn-dark btn-sm btn-block">Register</button>
-        <br>
-        Already User ? <a href="/login">Login</a>
-        <br>
-        <a href="/">Home</a>
+      <div class="section-title" data-aos="fade-up">
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+    <br><br>
+        <h1 data-aos="fade-up">SignUp</h1>
+        <div class="container" data-aos="fade-up" data-aos-delay="400">
+            {% comment %} message {% endcomment %}
+            {% include 'partials/_message.html' %}
+        <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+            <br>
+        
+                <label for="email">Username</label>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter username" required>
+                </div>
+                <label for="fname">First Name</label>
+                <div class="form-group">
+                    <input type="fname" class="form-control" name="fname" id="fname" placeholder="Enter fisrt name" required>
+                </div>
+                <label for="lname">Last Name</label>
+                <div class="form-group">
+                    <input type="lname" class="form-control" name="lname" id="lname" placeholder="Enter last name" required>
+                </div>
+                <label for="email">Email</label>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
+                </div>
+                <label for="pass1">Password</label>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Enter password" required>
+                </div>
+                <label for="pass2">Password</label>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="pass2" id="pass2" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn btn-dark btn-sm btn-block">Register</button>
+                <br>
+                 Already User ? <a href="/authentication/login">Login</a>
 
-</form>
+                <br>
+                <a href="/">Home</a>
+        
+        </form>
+        </div>
+        </div>
+  <div class="col-md-6"></div>  
 </div>
-{% endblock form %}
+</div>
+</div>
+</section>
+
+
+
+{% endblock body %}
 
 

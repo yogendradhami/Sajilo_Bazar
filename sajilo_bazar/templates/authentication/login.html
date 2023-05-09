@@ -1,0 +1,59 @@
+{% extends 'master/index.html' %}
+
+{% block title %}
+
+Login
+{% endblock title %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block body %}
+<section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+    <br><br>
+        <h1 data-aos="fade-up">Login</h1>
+        {% include 'partials/_message.html' %}
+        <div class="container" data-aos="fade-up" data-aos-delay="400">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+        
+            <br>
+        
+                <label for="email">Email</label>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
+                </div>
+                <label for="pass1">Password</label>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Enter password" required>
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-sm btn-block">Login</button>
+                <br>
+                <hr>
+                Not Already User ? <a href="/authentication/register">Register</a>
+                <span>Forget Password ? <a href="">Reset</a></span>
+                <br>
+                <a href="/">Home</a>
+        
+        </form>
+        </div>
+        </div>
+  <div class="col-md-6"></div>  
+</div>
+</div>
+</div>
+</section>
+
+
+
+{% endblock body %}
+
+
