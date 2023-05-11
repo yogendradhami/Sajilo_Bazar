@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from app_sajilo_bazar.models import Product
 from math import ceil
+from app_sajilo_bazar import keys
+
 # Create your views here.
 
 def Home(request):
