@@ -6,6 +6,10 @@ from app_sajilo_bazar import keys
 # Create your views here.
 
 def Home(request):
+    return render(request, 'master/base.html')
+
+
+def Purchase(request):
     current_user=request.user
     # print(current_user)
     allProds=[]
@@ -18,4 +22,4 @@ def Home(request):
         allProds.append([prod, range(1,nSlides),nSlides])
 
     params={'allProds':allProds}
-    return render(request, 'master/base.html',params)
+    return render(request, 'purchase/purchase.html',params)
